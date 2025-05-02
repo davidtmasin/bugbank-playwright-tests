@@ -143,7 +143,7 @@ npx playwright codegen
 
 │ └── ExemploPage.ts
 
-│ └── CadastroPage.ts # Exemplo: abstração da página de cadastro de usuário
+│ └── SignUpPage.ts # Exemplo: abstração da página de cadastro de usuário
 
 │ └── LoginPage.ts # Exemplo: abstração da página de login
 
@@ -151,7 +151,7 @@ npx playwright codegen
 
 ├── 📁** tests/** # Contém as suítes de testes e seus respectivos casos
 
-│ └── cadastro.spec.ts # Testes automatizados do cenário de cadastro de usuário
+│ └── signup.spec.ts # Testes automatizados do cenário de cadastro de usuário
 
 │ └── login.spec.ts # Testes automatizados do cenário de login
 
