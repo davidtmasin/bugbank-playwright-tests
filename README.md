@@ -8,7 +8,7 @@ O BugBank é uma aplicação web que simula uma aplicação real de um banco dig
 
 Esta aplicação foi submetida a um momento de testes manuais onde, o processo dos testes foi documentado em um repositório no Github. Você pode conferir os detalhes em: https://github.com/davidtmasin/portfolio-qa/tree/main/TestesManuais/BugBank.
 
-Para o objetivo de automação de testes neste projeto, listo a seguir, os documentos que serviram para a base dos testes:
+Para o objetivo de automação de testes neste projeto, listo a seguir, os documentos que servirão para a base dos testes:
 
 - [Requisitos](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/1-Requisitos-do-Projeto.md)
 - [Cenário e Casos de Teste](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/3-Cenarios-e-Casos-de-Teste.md)
