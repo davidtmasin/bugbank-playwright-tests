@@ -111,6 +111,16 @@ npx playwright test example
 
 ```
 
+Execução de um teste específico
+
+```bash
+npx playwright test --grep "nome_do_caso_de_teste"
+
+
+```
+
+
+
 Inicia os testes em modo de depuração, com pausas e ferramentas visuais para inspecionar cada etapa
 
 ```bash
