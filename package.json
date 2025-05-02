@@ -1,0 +1,25 @@
+{
+  "name": "bugbank-playwright-tests",
+  "version": "1.0.0",
+  "description": "<img src=\"https://github.com/davidtmasin/portfolio-qa/blob/main/.medias/media-bugbank.png\">",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidtmasin/bugbank-playwright-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidtmasin/bugbank-playwright-tests/issues"
+  },
+  "homepage": "https://github.com/davidtmasin/bugbank-playwright-tests#readme",
+  "dependencies": {
+    "playwright": "^1.52.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.3"
+  }
+}
