@@ -149,7 +149,7 @@ npx playwright codegen
 
 │
 
-├── 📁** tests/** # Contém as suítes de testes e seus respectivos casos
+├── 📁 **tests/** # Contém as suítes de testes e seus respectivos casos
 
 │ └── signup.spec.ts # Testes automatizados do cenário de cadastro de usuário
 
@@ -157,13 +157,13 @@ npx playwright codegen
 
 │
 
-├── 📄 _README.md_ # Documentação inicial do projeto
+├── 📄 **README.md** # Documentação inicial do projeto
 
-├── 📄 _package.json_ # Gerenciador de dependências e scripts do projeto
+├── 📄 **package.json** # Gerenciador de dependências e scripts do projeto
 
-├── 📄 _package-lock.json_ # Controle de versão exata das dependências instaladas
+├── 📄 **package-lock.json** # Controle de versão exata das dependências instaladas
 
-├── 📄 _playwright.config.ts_ # Configuração global dos testes no Playwright
+├── 📄 **playwright.config.ts** # Configuração global dos testes no Playwright
 
 ---
 
