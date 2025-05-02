@@ -141,11 +141,9 @@ npx playwright codegen
 
 ├── 📁 **pages/** # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
 
-│ └── ExemploPage.ts
+│ └── SignUpPage.ts # Abstração da página de cadastro de usuário
 
-│ └── SignUpPage.ts # Exemplo: abstração da página de cadastro de usuário
-
-│ └── LoginPage.ts # Exemplo: abstração da página de login
+│ └── LoginPage.ts # Abstração da página de login
 
 │
 
