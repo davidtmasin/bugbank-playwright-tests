@@ -8,7 +8,7 @@ export class SignUpPage {
     }
 
     async goto() {
-        await this.page.goto('https://bugbank.netlify.app');
+        await this.page.goto('/');
         await this.page.getByText('Registrar').click();
     }
 
@@ -32,12 +32,12 @@ export class SignUpPage {
 
         if (initialBalance) {
             await this.page.locator('#toggleAddBalance').click();
-
-            //getByLabel('Cadastrar com saldo inicial').check();
         }
     };
+
 
     async submit() {
         await this.page.getByText('Cadastrar').click();
     }
+
 }
