@@ -13,14 +13,13 @@ Para o objetivo de automação de testes neste projeto, listo a seguir, os docum
 - [Requisitos](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/1-Requisitos-do-Projeto.md)
 - [Cenário e Casos de Teste](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/3-Cenarios-e-Casos-de-Teste.md)
 
-
 ## ✅ Funcionalidades Cobertas
 
 As seguintes funcionalidades foram validadas manualmente e agora estão sendo automatizadas:
 
-- [x] Login na plataforma  
-- [x] Cadastro de novo usuário  
-- [x] Transferência de valores entre contas  
+- [x] Login na plataforma
+- [x] Cadastro de novo usuário
+- [x] Transferência de valores entre contas
 - [x] Visualização do extrato da conta
 
 ## 🎯 Objetivos
@@ -41,7 +40,8 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 Instalando o Playwright
 
 ```bash
-npm init playwright@lastest
+npm init playwright@latest
+
 
 ```
 
@@ -52,12 +52,14 @@ npm init -y
 npm install playwright
 npx playwright install
 
+
 ```
 
 Verificando a versão instalada
 
 ```bash
 npx playwright --version
+
 
 ```
 
@@ -66,16 +68,74 @@ Atualizando o Playwright
 ```bash
 npm init -D @playwright/test@latest
 
+
 ```
+
+Execução dos testes (modo headless)
+
+```bash
+npx playwright test
+
+
+```
+
+Execução dos testes (modo headful)
+
+```bash
+npx playwright test --headed
+
+
+```
+
+Inicia o modo interativo de interface gráfica, permitindo explorar e executar os testes visualmente
+
+```bash
+npx playwright test --ui
+
+
+```
+
+Executa os testes apenas no navegador Chrome (Chromium). Útil para validar comportamentos específicos por navegador
+
+```bash
+npx playwright test --project=chromium
+
+
+```
+
+Executa os testes contidos em um arquivo específico
+
+```bash
+npx playwright test example
+
+
+```
+
+Inicia os testes em modo de depuração, com pausas e ferramentas visuais para inspecionar cada etapa
+
+```bash
+npx playwright test --debug
+
+
+```
+
+Gera automaticamente o código dos testes a partir de interações feitas no navegador. Excelente para criar cenários base rapidamente
+
+```bash
+npx playwright codegen
+
+
+```
+
 
 
 ## 🧪 Estrutura do Projeto
 
 .
 
-├── tests/              # Casos de teste automatizados
+├── tests/ # Casos de teste automatizados
 
-├── pages/              # Page Objects (se aplicável)
+├── pages/ # Page Objects (se aplicável)
 
 ├── playwright.config.ts
 
@@ -85,4 +145,4 @@ npm init -D @playwright/test@latest
 
 Retornar ao repositório [Playwright](https://github.com/davidtmasin/playwright).
 
-Copyright © 2025. David Teixeira de Masin
+Copyright © 2025 David Teixeira de Masin
