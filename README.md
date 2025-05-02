@@ -13,6 +13,13 @@ Para o objetivo de automação de testes neste projeto, listo a seguir, os docum
 - [Requisitos](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/1-Requisitos-do-Projeto.md)
 - [Cenário e Casos de Teste](https://github.com/davidtmasin/portfolio-qa/blob/main/TestesManuais/BugBank/3-Cenarios-e-Casos-de-Teste.md)
 
+## 🎯 Objetivos
+
+- Automatizar os principais fluxos funcionais do BugBank.
+- Reduzir esforço manual em execuções repetitivas.
+- Permitir execução automática dos testes via pipelines CI/CD.
+- Execução de testes de regressão em alterações do sistema.
+
 ## ✅ Funcionalidades Cobertas
 
 As seguintes funcionalidades foram validadas manualmente e agora estão sendo automatizadas:
@@ -21,13 +28,6 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 - [x] Cadastro de novo usuário
 - [x] Transferência de valores entre contas
 - [x] Visualização do extrato da conta
-
-## 🎯 Objetivos
-
-- Automatizar os principais fluxos funcionais do BugBank.
-- Reduzir esforço manual em execuções repetitivas.
-- Permitir execução automática dos testes via pipelines CI/CD.
-- Execução de testes de regressão em alterações do sistema.
 
 - ## 🛠 Tecnologias Utilizadas
 
