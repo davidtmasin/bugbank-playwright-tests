@@ -1,5 +1,7 @@
 # 🧪 Testes Automatizados com Playwright – BugBank
 
+<img src="https://github.com/davidtmasin/portfolio-qa/blob/main/.medias/media-bugbank.png">
+
 ## 📌 Sobre o Projeto BugBank
 
 O BugBank é uma aplicação web que simula uma aplicação real de um banco digital, permitindo que os usuários possam se cadastrar na plataforma, efetuar o login, realizar e receber transferências, e visualizar o extrato da conta.
@@ -59,3 +61,7 @@ npm install
 └── README.md
 
 ---
+
+Retornar ao repositório [Playwright](https://github.com/davidtmasin/playwright).
+
+Copyright © 2025. David Teixeira de Masin
