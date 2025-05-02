@@ -142,14 +142,19 @@ npx playwright codegen
 ## 🧪 Estrutura do Projeto
 
 .
-
-├── tests/ # Casos de teste automatizados
-
-├── pages/ # Page Objects (se aplicável)
-
-├── playwright.config.ts
-
-└── README.md
+├── 📁 **pages/** # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
+│ └── ExemploPage.ts
+│ └── CadastroPage.ts # Exemplo: abstração da página de cadastro de usuário
+│ └── LoginPage.ts # Exemplo: abstração da página de login
+│
+├── 📁** tests/** # Contém as suítes de testes e seus respectivos casos
+│ └── cadastro.spec.ts # Testes automatizados do cenário de cadastro de usuário
+│ └── login.spec.ts # Testes automatizados do cenário de login
+│
+├── 📄 *README.md* # Documentação inicial do projeto
+├── 📄 *package.json* # Gerenciador de dependências e scripts do projeto
+├── 📄 *package-lock.json* # Controle de versão exata das dependências instaladas
+├── 📄 *playwright.config.ts* # Configuração global dos testes no Playwright
 
 ---
 
