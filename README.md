@@ -137,9 +137,10 @@ npx playwright codegen
 
 ## 🧪 Estrutura do Projeto
 
+```
 .
 
-├── 📁 **pages/** # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
+├── 📁 /pages # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
 
 │ └── SignUpPage.ts # Abstração da página de cadastro de usuário
 
@@ -147,7 +148,7 @@ npx playwright codegen
 
 │
 
-├── 📁 **tests/** # Contém as suítes de testes e seus respectivos casos
+├── 📁 /tests # Contém as suítes de testes e seus respectivos casos
 
 │ └── signup.spec.ts # Testes automatizados do cenário de cadastro de usuário
 
@@ -155,13 +156,15 @@ npx playwright codegen
 
 │
 
-├── 📄 **README.md** # Documentação inicial do projeto
+├── 📄 README.md # Documentação inicial do projeto
 
-├── 📄 **package.json** # Gerenciador de dependências e scripts do projeto
+├── 📄 package.json # Gerenciador de dependências e scripts do projeto
 
-├── 📄 **package-lock.json** # Controle de versão exata das dependências instaladas
+├── 📄 package-lock.json # Controle de versão exata das dependências instaladas
 
-├── 📄 **playwright.config.ts** # Configuração global dos testes no Playwright
+├── 📄 playwright.config.ts # Configuração global dos testes no Playwright
+
+```
 
 ---
 
