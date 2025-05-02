@@ -36,17 +36,38 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 - [TypeScript](https://www.typescriptlang.org/)
 - [GitHub Actions](https://docs.github.com/pt/actions)
 
-## 🚀 Como Executar os Testes
+## 🚀 Comandos Úteis
+
+Instalando o Playwright
 
 ```bash
-# Instalar as dependências
-npm install
-
-# Executar os testes
-
-# Para visualizar os testes em modo interativo
+npm init playwright@lastest
 
 ```
+
+ou
+
+```bash
+npm init -y
+npm install playwright
+npx playwright install
+
+```
+
+Verificando a versão instalada
+
+```bash
+npx playwright --version
+
+```
+
+Atualizando o Playwright
+
+```bash
+npm init -D @playwright/test@latest
+
+```
+
 
 ## 🧪 Estrutura do Projeto
 
