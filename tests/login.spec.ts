@@ -1,7 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
 
-
 test.describe("C02 - Login na Plataforma", () => {
     test('CT01 - Login com as credenciais de e-mail e senha válidas', async ({ page }) => {
         const login = new LoginPage(page);
@@ -136,6 +135,5 @@ test.describe("C02 - Login na Plataforma", () => {
         await expect(page).toHaveURL('/')
 
     });
-
 
 });

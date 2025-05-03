@@ -1,15 +1,29 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class SignUpPage {
     readonly page: Page;
+    readonly name: Locator;
+    readonly email: Locator;
+    readonly password: Locator;
+    readonly passwordConfirmation: Locator;
+    readonly btnSignUp: Locator;
+    readonly toggleAddBalance: Locator;
+    readonly btnRegister: Locator;
 
     constructor(page: Page) {
         this.page = page;
+        this.name = page.getByPlaceholder('Informe seu Nome');
+        this.email = page.locator('div:nth-child(2) > input');
+        this.password = page.locator('div:nth-child(4) > div > input');
+        this.passwordConfirmation = page.getByPlaceholder('Informe a confirmação da senha');
+        this.btnSignUp = page.getByText('Registrar')
+        this.toggleAddBalance = page.locator('#toggleAddBalance');
+        this.btnRegister = page.getByText('Cadastrar');
     }
 
     async goto() {
         await this.page.goto('/');
-        await this.page.getByText('Registrar').click();
+        await this.btnSignUp.click();
     }
 
     async fillForm({
@@ -25,19 +39,19 @@ export class SignUpPage {
         passwordConfirmation: string,
         initialBalance: boolean
     }) {
-        await this.page.locator("div:nth-child(2) > input").fill(email);
-        await this.page.getByPlaceholder('Informe seu Nome').fill(name);
-        await this.page.locator('div:nth-child(4) > div > input').fill(password);
-        await this.page.getByPlaceholder('Informe a confirmação da senha').fill(passwordConfirmation);
+        await this.email.fill(email);
+        await this.name.fill(name);
+        await this.password.fill(password);
+        await this.passwordConfirmation.fill(passwordConfirmation);
 
         if (initialBalance) {
-            await this.page.locator('#toggleAddBalance').click();
+            await this.toggleAddBalance.click();
         }
     };
 
 
     async submit() {
-        await this.page.getByText('Cadastrar').click();
+        await this.btnRegister.click();
     }
 
 }

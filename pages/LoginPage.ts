@@ -1,10 +1,19 @@
-import { Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class LoginPage {
     readonly page: Page;
+    readonly email: Locator;
+    readonly password: Locator;
+    readonly btnAcess: Locator;
+    readonly btnExit: Locator;
+
 
     constructor(page: Page) {
         this.page = page;
+        this.email = page.locator('div:nth-child(2) > input');
+        this.password = page.locator('div:nth-child(4) > div > input');
+        this.btnAcess = page.getByText('Acessar');
+        this.btnExit = page.locator('#btnExit');
     }
 
     async goto() {
@@ -24,9 +33,9 @@ export class LoginPage {
     }){
         await this.page.getByText('Registrar').click();
         
-        await this.page.locator("div:nth-child(2) > input").fill(email);
+        await this.email.fill(email);
         await this.page.getByPlaceholder('Informe seu Nome').fill(name);
-        await this.page.locator('div:nth-child(4) > div > input').fill(password);
+        await this.password.fill(password);
         await this.page.getByPlaceholder('Informe a confirmação da senha').fill(passwordConfirmation);
 
         await this.page.getByText('Cadastrar').click();
@@ -41,15 +50,15 @@ export class LoginPage {
         email: string,
         password: string
     }){
-        await this.page.locator('//form/div[1]/input').fill(email);
-        await this.page.locator('//form/div[2]/div/input').fill(password);
+        await this.email.fill(email);
+        await this.password.fill(password);
     }
 
     async logout(){
-        await this.page.locator('#btnExit').click();
+        await this.btnExit.click();
     }
 
     async access(){
-        await this.page.getByText('Acessar').click();
+        await this.btnAcess.click();
     }
 }
