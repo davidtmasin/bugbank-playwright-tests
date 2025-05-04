@@ -49,8 +49,7 @@ export class SignUpPage {
         if (initialBalance) {
             await this.toggleAddBalance.click();
         }
-    };
-
+    }
 
     async submit() {
         await this.btnRegister.click();
