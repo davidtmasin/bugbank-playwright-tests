@@ -4,14 +4,14 @@ import { SignUpPage } from "../pages/SignUpPage";
 
 test.describe("C02 - Login na Plataforma", () => {
 
-    test.beforeEach('Acessando a página de Cadastro', async ({ page }, testInfo) => {
+    test.beforeEach(async ({ page }, testInfo) => {
         const login = new LoginPage(page);    
         await login.goto();
 
         await page.screenshot({ path: `screenshots/login/C02-${testInfo.title}-ANTES.png`, fullPage: true });
     });
 
-    test.afterEach('Checando Status', async ({ page }, testInfo) => {
+    test.afterEach(async ({ page }, testInfo) => {
         await page.screenshot({ path: `screenshots/login/C02-${testInfo.title}-DEPOIS.png`, fullPage: true });
     });
     

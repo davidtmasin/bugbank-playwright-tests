@@ -4,14 +4,14 @@ import { SignUpPage } from "../pages/SignUpPage";
 
 test.describe("C01 - Cadastro de Usuário", () => {
 
-    test.beforeEach('Acessando a página de Cadastro', async ({ page }, testInfo) => {
+    test.beforeEach(async ({ page }, testInfo) => {
         const signup = new SignUpPage(page);
         await signup.goto();
 
         await page.screenshot({ path: `screenshots/cadastro/C01-${testInfo.title}-ANTES.png`, fullPage: true });
     });
 
-    test.afterEach('Checando Status', async ({ page }, testInfo) => {
+    test.afterEach(async ({ page }, testInfo) => {
         await page.screenshot({ path: `screenshots/cadastro/C01-${testInfo.title}-DEPOIS.png`, fullPage: true });
     });
 
@@ -51,7 +51,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('criada com sucesso');
     });
 
-    test.fail('CT03 - Cadastrar sem fornecer os dados obrigatórios', {
+    test('CT03 - Cadastrar sem fornecer os dados obrigatórios', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -79,7 +79,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Nome não pode ser vazio.');
     });
 
-    test.fail('CT05 - Cadastrar sem fornecer a informação de Email', {
+    test('CT05 - Cadastrar sem fornecer a informação de Email', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -97,7 +97,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Email não pode ser vazio.');
     });
 
-    test.fail('CT06 - Cadastrar sem fornecer a informação de Senha', {
+    test('CT06 - Cadastrar sem fornecer a informação de Senha', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -115,7 +115,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Senha não pode ser vazio.');
     });
 
-    test.fail('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', {
+    test('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -151,22 +151,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('As senhas não são iguais.');
     });
 
-    test.fail('CT09 - Cadastrar novamente o mesmo usuário', {
+    test('CT09 - Cadastrar novamente o mesmo usuário', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
-
-        // for (let i = 0; i < 2; i++) {
-        //     await signup.goto();
-        // await signup.fillForm({
-        //     email: 'xablau@teste.com.br',
-        //     name: 'Xablau Master',
-        //     password: 'S3cr3TP@55w0rd',
-        //     passwordConfirmation: 'S3cr3TP@55w0rd',
-        //     initialBalance: false
-        // });
-        // await signup.submit();
-        // }
 
         await signup.duplicatedRegister({
             email: 'xablau@teste.com.br',
