@@ -39,7 +39,7 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 
 ```
 .
-├── 📁 pages/                    # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
+├── 📁 /pages                    # Contém os arquivos Page Object Model (POM) para mapeamento e interação com as páginas da aplicação
 │   └── SignUpPage.ts            # Abstração da página de cadastro de usuário
 │   └── LoginPage.ts             # Abstração da página de login
 │   └── TransferPage.ts          # Abstração da página de transferência
