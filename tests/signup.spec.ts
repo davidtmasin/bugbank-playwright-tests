@@ -3,10 +3,23 @@ import { SignUpPage } from "../pages/SignUpPage";
 
 
 test.describe("C01 - Cadastro de Usuário", () => {
-    test('CT01 - Cadastrar novo usuário com sucesso (sem saldo)', async ({ page }) => {
+
+    test.beforeEach('Acessando a página de Cadastro', async ({ page }, testInfo) => {
+        const signup = new SignUpPage(page);
+        await signup.goto();
+
+        await page.screenshot({ path: `screenshots/cadastro/C01-${testInfo.title}-ANTES.png`, fullPage: true });
+    });
+
+    test.afterEach('Checando Status', async ({ page }, testInfo) => {
+        await page.screenshot({ path: `screenshots/cadastro/C01-${testInfo.title}-DEPOIS.png`, fullPage: true });
+    });
+
+    test('CT01 - Cadastrar novo usuário com sucesso (sem saldo)', {
+        tag: '@success',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: 'Xablau Master',
@@ -20,10 +33,11 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('criada com sucesso');
     });
 
-    test('CT02 - Cadastrar novo usuário com sucesso (com saldo)', async ({ page }) => {
+    test('CT02 - Cadastrar novo usuário com sucesso (com saldo)', {
+        tag: '@success',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: 'Xablau Master',
@@ -37,19 +51,21 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('criada com sucesso');
     });
 
-    test('CT03 - Cadastrar sem fornecer os dados obrigatórios', async ({ page }) => {
+    test.fail('CT03 - Cadastrar sem fornecer os dados obrigatórios', {
+        tag: '@failed',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.submit();
 
         await expect(page.locator('div.style__ContainerFieldInput-sc-s3e9ea-0.kOeYBn.input__child > p')).toHaveCount(4);
     });
 
-    test('CT04 - Cadastrar sem fornecer a informação de Nome', async ({ page }) => {
+    test('CT04 - Cadastrar sem fornecer a informação de Nome', {
+        tag: '@success',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: '',
@@ -63,10 +79,11 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Nome não pode ser vazio.');
     });
 
-    test('CT05 - Cadastrar sem fornecer a informação de Email', async ({ page }) => {
+    test.fail('CT05 - Cadastrar sem fornecer a informação de Email', {
+        tag: '@failed',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: '',
             name: 'Xablau Master',
@@ -80,10 +97,11 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Email não pode ser vazio.');
     });
 
-    test('CT06 - Cadastrar sem fornecer a informação de Senha', async ({ page }) => {
+    test.fail('CT06 - Cadastrar sem fornecer a informação de Senha', {
+        tag: '@failed',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: 'Xablau Master',
@@ -97,10 +115,11 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Senha não pode ser vazio.');
     });
 
-    test('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', async ({ page }) => {
+    test.fail('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', {
+        tag: '@failed',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: 'Xablau Master',
@@ -114,10 +133,11 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Confirmar senha não pode ser vazio.');
     });
 
-    test('CT08 - Cadastrar com divergência nos campos de Senha e Confirmação de Senha', async ({ page }) => {
+    test('CT08 - Cadastrar com divergência nos campos de Senha e Confirmação de Senha', {
+        tag: '@success',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        await signup.goto();
         await signup.fillForm({
             email: 'xablau@teste.com.br',
             name: 'Xablau Master',
@@ -131,20 +151,29 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('As senhas não são iguais.');
     });
 
-    test('CT09 - Cadastrar novamente o mesmo usuário', async ({ page }) => {
+    test.fail('CT09 - Cadastrar novamente o mesmo usuário', {
+        tag: '@failed',
+    }, async ({ page }) => {
         const signup = new SignUpPage(page);
 
-        for(let i = 0; i < 2; i++) {
-            await signup.goto();
-            await signup.fillForm({
-                email: 'xablau@teste.com.br',
-                name: 'Xablau Master',
-                password: 'S3cr3TP@55w0rd',
-                passwordConfirmation: 'S3cr3TP@55w0rd',
-                initialBalance: false
-            });
-            await signup.submit();
-        }
+        // for (let i = 0; i < 2; i++) {
+        //     await signup.goto();
+        // await signup.fillForm({
+        //     email: 'xablau@teste.com.br',
+        //     name: 'Xablau Master',
+        //     password: 'S3cr3TP@55w0rd',
+        //     passwordConfirmation: 'S3cr3TP@55w0rd',
+        //     initialBalance: false
+        // });
+        // await signup.submit();
+        // }
+
+        await signup.duplicatedRegister({
+            email: 'xablau@teste.com.br',
+            name: 'Xablau Master',
+            password: 'S3cr3TP@55w0rd',
+            passwordConfirmation: 'S3cr3TP@55w0rd'
+        });
 
         await expect(page.locator('#modalText')).toBeVisible();
         await expect(page.locator('#modalText')).toContainText('O e-mail fornecido já em uso.');

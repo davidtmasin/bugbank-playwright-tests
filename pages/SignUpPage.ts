@@ -9,6 +9,7 @@ export class SignUpPage {
     readonly btnSignUp: Locator;
     readonly toggleAddBalance: Locator;
     readonly btnRegister: Locator;
+    readonly btnClose: Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -19,6 +20,7 @@ export class SignUpPage {
         this.btnSignUp = page.getByText('Registrar')
         this.toggleAddBalance = page.locator('#toggleAddBalance');
         this.btnRegister = page.getByText('Cadastrar');
+        this.btnClose = page.getByText('Fechar');
     }
 
     async goto() {
@@ -52,6 +54,29 @@ export class SignUpPage {
 
     async submit() {
         await this.btnRegister.click();
+    }
+
+    async duplicatedRegister({
+        email,
+        name,
+        password,
+        passwordConfirmation
+    }: {
+        name: string,
+        email: string,
+        password: string,
+        passwordConfirmation: string
+    }) {
+        await this.email.fill(email);
+        await this.name.fill(name);
+        await this.password.fill(password);
+        await this.passwordConfirmation.fill(passwordConfirmation);
+
+        await this.btnRegister.click();
+        await this.btnClose.click();
+        await this.btnSignUp.click();
+        await this.btnRegister.click();
+
     }
 
 }
