@@ -43,7 +43,7 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 │   └── SignUpPage.ts            # Abstração da página de cadastro de usuário
 │   └── LoginPage.ts             # Abstração da página de login
 │   └── TransferPage.ts          # Abstração da página de transferência
-|
+│ 
 ├── 📁 /tests                   # Contém as suítes de testes e seus respectivos casos
 │   └── signup.spec.ts           # Testes automatizados do cenário de cadastro de usuário
 │   └── login.spec.ts            # Testes automatizados do cenário de login na plataforma
