@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class TransferPage {
     readonly page: Page;
@@ -12,7 +12,7 @@ export class TransferPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.transferPageButton = page.locator('#btn-TRANSFERÊNCIA');
+        this.transferPageButton = page.locator("a[id='btn-TRANSFERÊNCIA']");
         this.accountNumber = page.locator('input[type="accountNumber"]');
         this.accountDigit = page.locator('input[type="digit"]');
         this.transferValue = page.locator('input[type="transferValue"]');
@@ -21,35 +21,13 @@ export class TransferPage {
         this.modalText = page.locator('#modalText');
     }
 
-    async goto() {
-        await this.page.goto('/');
-    }
-
-    // async extractAccountNumber1() {
-    //     const message = await this.page.textContent('#modalText');
-    //     console.log(message);
-
-    //     const match = message?.match(/\d+/g); // pega todos os números (como strings)
-    //     const accountNumber1 = match ? parseInt(match[0]) : null;
-    //     const accountDigit1 = match ? parseInt(match[1]) : null;
-
-    //     console.log(accountNumber1);
-    //     console.log(accountDigit1);
-    // }
-
-    // async captureAccountDataWithBalance() {
-    //     const message = await this.page.textContent('#modalText');
-    //     console.log(message);
-
-    //     const match = message?.match(/\d+/g); // pega todos os números (como strings)
-    //     const accountNumber2 = match ? parseInt(match[0]) : null;
-    //     const accountDigit2 = match ? parseInt(match[1]) : null;
-
-    //     console.log(accountNumber2);
-    //     console.log(accountDigit2);
+    // async goto() {
+    //     await this.page.goto('/');
     // }
 
     async gotToTransferPage() {
+        // await this.transferPageButton.waitFor({ state: "visible" });
+        await expect(this.transferPageButton).toBeVisible();
         await this.transferPageButton.click();
     }
 
