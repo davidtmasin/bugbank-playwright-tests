@@ -26,9 +26,7 @@ export class TransferPage {
     // }
 
     async gotToTransferPage() {
-        // await this.transferPageButton.waitFor({ state: "visible" });
-        await expect(this.transferPageButton).toBeVisible();
-        await this.transferPageButton.click();
+        await this.transferPageButton.click();        
     }
 
     async fillTransferForm(

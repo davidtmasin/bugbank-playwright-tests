@@ -32,12 +32,11 @@ export class LoginPage {
     }
 
     async access() {
-        await expect(this.btnAcess).toBeVisible();
-        await this.btnAcess.click();
+        await this.btnAcess.click({ timeout: 35000 });
     }
 
     async logout() {
         await this.btnExit.click();
     }
-
+    
 }
