@@ -32,11 +32,11 @@ export const test = base.extend<Fixtures>({
             digit: match?.[2] || '',
         };
 
-        await page.locator('text=Fechar').click();
+        await page.locator('text=Fechar').click({ delay: 1000 });
 
         await use(account);
     },
-    
+
     destinyAccount: async ({ page }, use) => {
 
         await page.goto('/');
@@ -56,7 +56,7 @@ export const test = base.extend<Fixtures>({
             digit: match?.[2] || '',
         };
 
-        await page.locator('text=Fechar').click();
+        await page.locator('text=Fechar').click({ delay: 1000 });
 
         await use(account);
     }
