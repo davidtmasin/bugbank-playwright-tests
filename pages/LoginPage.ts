@@ -1,5 +1,4 @@
-import { Locator, Page } from "@playwright/test";
-import { SignUpPage } from "./SignUpPage";
+import { expect, Locator, Page } from "@playwright/test";
 
 export class LoginPage {
     readonly page: Page;
@@ -27,16 +26,17 @@ export class LoginPage {
     }: {
         email: string,
         password: string
-    }){
+    }) {
         await this.email.fill(email);
         await this.password.fill(password);
     }
-    
-    async access(){
+
+    async access() {
+        await expect(this.btnAcess).toBeVisible();
         await this.btnAcess.click();
     }
 
-    async logout(){
+    async logout() {
         await this.btnExit.click();
     }
 
