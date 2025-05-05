@@ -26,7 +26,7 @@ export class TransferPage {
     // }
 
     async gotToTransferPage() {
-        await this.transferPageButton.click();        
+        await this.transferPageButton.click();
     }
 
     async fillTransferForm(

@@ -29,14 +29,15 @@ export class LoginPage {
     }) {
         await this.email.fill(email);
         await this.password.fill(password);
+        await this.btnAcess.waitFor();
     }
 
     async access() {
-        await this.btnAcess.click({ timeout: 35000 });
+        await this.btnAcess.click();
     }
 
     async logout() {
         await this.btnExit.click();
     }
-    
+
 }
