@@ -39,7 +39,7 @@ export const test = base.extend<Fixtures>({
     
     destinyAccount: async ({ page }, use) => {
 
-        // await page.goto('/');
+        await page.goto('/');
         await page.click('text=Registrar');
 
         await page.fill('div:nth-child(2) > input', 'conta-sem-saldo@teste.com');
