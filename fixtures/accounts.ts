@@ -32,7 +32,8 @@ export const test = base.extend<Fixtures>({
             digit: match?.[2] || '',
         };
 
-        await page.locator('text=Fechar').click({ delay: 1000 });
+        // await page.locator('text=Fechar').click({ delay: 1000 });
+        await page.locator("//a[contains(.,'x')]").click({ delay: 1000 });
 
         await use(account);
     },
@@ -56,7 +57,8 @@ export const test = base.extend<Fixtures>({
             digit: match?.[2] || '',
         };
 
-        await page.locator('text=Fechar').click({ delay: 1000 });
+        // await page.locator('text=Fechar').click({ delay: 1000 });
+        await page.locator("//a[contains(.,'x')]").click({ delay: 1000 });
 
         await use(account);
     }
