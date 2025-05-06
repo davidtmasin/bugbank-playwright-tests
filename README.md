@@ -52,7 +52,7 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 │   └── 🧪 bankstatement.spec.ts    # Testes automatizados do cenário de extrato da conta
 │
 ├── 📁 /fixtures                    # Define dados fixos reutilizáveis, como criação de contas com ou sem saldo para os testes 
-│   └── 🧪 accounts.ts              # Fixture responsável pela criação das contas e o captura das informações de número da conta e dígito
+│   └── 🧪 accounts.ts              # Fixture responsável pela criação das contas e captura das informações de número da conta e dígito
 │
 ├── 📁 /utils                       # Funções auxiliares que oferecem suporte à lógica dos testes
 │   └── 🧪 dateUtils.ts             # Formatação de data no padrão PT-BR para uso nos testes
