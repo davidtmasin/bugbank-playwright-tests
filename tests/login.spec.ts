@@ -2,6 +2,8 @@ import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
 import { SignUpPage } from "../pages/SignUpPage";
 
+import { dataTestLogin } from '../fixtures/dataTest';
+
 test.describe("C02 - Login na Plataforma", () => {
 
     test.beforeEach(async ({ page }, testInfo) => {
@@ -16,31 +18,23 @@ test.describe("C02 - Login na Plataforma", () => {
     });
     
     test('CT01 - Login com as credenciais de e-mail e senha válidas', async ({ page }) => {    
-        const data = {
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
-            initialBalance: false
-        };
         const login = new LoginPage(page);     
         const signup = new SignUpPage(page);
 
         await signup.btnSignUp.click();
         await signup.fillForm({
-            email: data.email,
-            name: data.name,
-            password: data.password,
-            passwordConfirmation: data.passwordConfirmation,
-            initialBalance: data.initialBalance
+            email: dataTestLogin.email,
+            name: dataTestLogin.name,
+            password: dataTestLogin.password,
+            passwordConfirmation: dataTestLogin.password,
+            initialBalance: false
         });
         await signup.submit();
         // await signup.btnClose.click();
         await login.goto();
-
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTestLogin.email,
+            password: dataTestLogin.password
         });
         await login.access();
 
@@ -49,16 +43,11 @@ test.describe("C02 - Login na Plataforma", () => {
     });
 
     test('CT02 - Login com senha incorreta', async ({ page }) => {
-        const data = {
-            
-            email: 'xablau@teste.com.br',
-            password: '123'
-        };
         const login = new LoginPage(page);
 
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTestLogin.email,
+            password: '123'
         });
         await login.access();
 
@@ -67,15 +56,11 @@ test.describe("C02 - Login na Plataforma", () => {
     });
 
     test('CT03 - Login com email não cadastrado', async ({ page }) => {
-        const data = {
-            email: 'alguma@coisa.com.br',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
 
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: 'alguma@coisa.com.br',
+            password: dataTestLogin.password
         });
         await login.access();
 
@@ -84,15 +69,11 @@ test.describe("C02 - Login na Plataforma", () => {
     });
 
     test('CT04 - Login com email em formato inválido', async ({ page }) => {
-        const data = {
-            email: 'alguma@c',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
 
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: 'alguma@c',
+            password: dataTestLogin.password
         });
         await login.access();
 
@@ -108,31 +89,24 @@ test.describe("C02 - Login na Plataforma", () => {
     });
 
     test('CT06 - Deve realizar o Logout com sucesso', async ({ page }) => {
-        const data = {
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
-            initialBalance: false
-        };
         const login = new LoginPage(page);     
         const signup = new SignUpPage(page);
 
         await signup.btnSignUp.click();
         await signup.fillForm({
-            email: data.email,
-            name: data.name,
-            password: data.password,
-            passwordConfirmation: data.passwordConfirmation,
-            initialBalance: data.initialBalance
+            email: dataTestLogin.email,
+            name: dataTestLogin.name,
+            password: dataTestLogin.password,
+            passwordConfirmation: dataTestLogin.passwordConfirmation,
+            initialBalance: false
         });
         await signup.submit();
         // await signup.btnClose.click();
         await login.goto();
 
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTestLogin.email,
+            password: dataTestLogin.password
         });
         await login.access();
         await login.logout();
