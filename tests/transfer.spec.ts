@@ -2,6 +2,8 @@ import { test, expect } from '../fixtures/accounts';
 import { LoginPage } from "../pages/LoginPage";
 import { TransferPage } from "../pages/TransferPage";
 
+import { dataTest } from "../fixtures/dataTest";
+
 
 test.describe("C03 - Transferência de Valores", () => {
 
@@ -14,17 +16,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT01 - Usar uma conta com saldo suficiente para transferir R$100 para uma conta válida', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -46,17 +44,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT02 - Usar uma conta com saldo suficiente para transferir R$100 para uma conta inválida', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -75,17 +69,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT03 - Transferir dinheiro para uma conta válida, estando com saldo insuficiente', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -104,17 +94,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT04 - Transferir dinheiro para uma conta inválida, estando com saldo insuficiente', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -133,17 +119,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT05 - Realizar uma transferência com valor zero', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -162,17 +144,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test('CT06 - Realizar uma transferência com valor menor que zero', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -191,17 +169,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test.fail('CT07 - Realizar uma transferência sem preencher o campo obrigatório de descrição @failed', async ({ page, originAccount, destinyAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -220,17 +194,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test.fail('CT08 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, originAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -249,17 +219,13 @@ test.describe("C03 - Transferência de Valores", () => {
     });
 
     test.fail('CT08.1 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, destinyAccount, originAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd'
-        };
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -285,9 +251,9 @@ test.describe("C03 - Transferência de Valores", () => {
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
+            email: dataTest.account_email_a,
             password: data.password
         });
         await login.access();
@@ -314,9 +280,9 @@ test.describe("C03 - Transferência de Valores", () => {
         const login = new LoginPage(page);
         const transfer = new TransferPage(page);
 
-        // Login na conta com saldo
+        // Login na conta
         await login.credentials({
-            email: data.email,
+            email: dataTest.account_email_a,
             password: data.password
         });
         await login.access();

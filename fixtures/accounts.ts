@@ -1,5 +1,7 @@
 import { test as base } from '@playwright/test';
 
+import { dataTest } from '../fixtures/dataTest';
+
 type Account = {
     number: string;
     digit: string;
@@ -17,10 +19,10 @@ export const test = base.extend<Fixtures>({
         await page.goto('/');
         await page.click('text=Registrar');
 
-        await page.fill('div:nth-child(2) > input', 'conta-com-saldo@teste.com');
+        await page.fill('div:nth-child(2) > input', dataTest.account_email_a);
         await page.getByPlaceholder('Informe seu Nome').fill('Conta A');
-        await page.fill('div:nth-child(4) > div > input', 'S3cr3TP@55w0rd');
-        await page.getByPlaceholder('Informe a confirmação da senha').fill('S3cr3TP@55w0rd');
+        await page.fill('div:nth-child(4) > div > input', dataTest.password);
+        await page.getByPlaceholder('Informe a confirmação da senha').fill(dataTest.password);
         await page.locator('#toggleAddBalance').click();
 
         await page.locator('text=Cadastrar').click();
@@ -44,10 +46,10 @@ export const test = base.extend<Fixtures>({
         await page.goto('/');
         await page.click('text=Registrar');
 
-        await page.fill('div:nth-child(2) > input', 'conta-sem-saldo@teste.com');
+        await page.fill('div:nth-child(2) > input', dataTest.account_email_b);
         await page.getByPlaceholder('Informe seu Nome').fill('Conta B');
-        await page.fill('div:nth-child(4) > div > input', 'S3cr3TP@55w0rd');
-        await page.getByPlaceholder('Informe a confirmação da senha').fill('S3cr3TP@55w0rd');
+        await page.fill('div:nth-child(4) > div > input', dataTest.password);
+        await page.getByPlaceholder('Informe a confirmação da senha').fill(dataTest.password);
 
         await page.locator('text=Cadastrar').click();
 

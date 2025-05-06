@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { SignUpPage } from "../pages/SignUpPage";
 
+import { dataTest } from "../fixtures/dataTest";
 
 test.describe("C01 - Cadastro de Usuário", () => {
 
@@ -21,10 +22,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
             initialBalance: false
         });
         await signup.submit();
@@ -39,10 +40,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
             initialBalance: true
         });
         await signup.submit();
@@ -67,10 +68,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
+            email: dataTest.email,
             name: '',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
             initialBalance: false
         });
         await signup.submit();
@@ -86,9 +87,9 @@ test.describe("C01 - Cadastro de Usuário", () => {
 
         await signup.fillForm({
             email: '',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
             initialBalance: false
         });
         await signup.submit();
@@ -103,10 +104,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
+            email: dataTest.email,
+            name: dataTest.name,
             password: '',
-            passwordConfirmation: 'S3cr3TP@55w0rd',
+            passwordConfirmation: dataTest.password,
             initialBalance: false
         });
         await signup.submit();
@@ -121,9 +122,9 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
             passwordConfirmation: '',
             initialBalance: false
         });
@@ -139,9 +140,9 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.fillForm({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
             passwordConfirmation: 'qwerty123',
             initialBalance: false
         });
@@ -157,10 +158,10 @@ test.describe("C01 - Cadastro de Usuário", () => {
         const signup = new SignUpPage(page);
 
         await signup.duplicatedRegister({
-            email: 'xablau@teste.com.br',
-            name: 'Xablau Master',
-            password: 'S3cr3TP@55w0rd',
-            passwordConfirmation: 'S3cr3TP@55w0rd'
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
         });
 
         await expect(page.locator('#modalText')).toBeVisible();

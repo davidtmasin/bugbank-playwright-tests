@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import { LoginPage } from "../pages/LoginPage";
 import { SignUpPage } from "../pages/SignUpPage";
 
-import { dataTestLogin } from '../fixtures/dataTest';
+import { dataTest } from '../fixtures/dataTest';
 
 test.describe("C02 - Login na Plataforma", () => {
 
@@ -23,18 +23,18 @@ test.describe("C02 - Login na Plataforma", () => {
 
         await signup.btnSignUp.click();
         await signup.fillForm({
-            email: dataTestLogin.email,
-            name: dataTestLogin.name,
-            password: dataTestLogin.password,
-            passwordConfirmation: dataTestLogin.password,
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.password,
             initialBalance: false
         });
         await signup.submit();
         // await signup.btnClose.click();
         await login.goto();
         await login.credentials({
-            email: dataTestLogin.email,
-            password: dataTestLogin.password
+            email: dataTest.email,
+            password: dataTest.password
         });
         await login.access();
 
@@ -46,7 +46,7 @@ test.describe("C02 - Login na Plataforma", () => {
         const login = new LoginPage(page);
 
         await login.credentials({
-            email: dataTestLogin.email,
+            email: dataTest.email,
             password: '123'
         });
         await login.access();
@@ -60,7 +60,7 @@ test.describe("C02 - Login na Plataforma", () => {
 
         await login.credentials({
             email: 'alguma@coisa.com.br',
-            password: dataTestLogin.password
+            password: dataTest.password
         });
         await login.access();
 
@@ -73,7 +73,7 @@ test.describe("C02 - Login na Plataforma", () => {
 
         await login.credentials({
             email: 'alguma@c',
-            password: dataTestLogin.password
+            password: dataTest.password
         });
         await login.access();
 
@@ -94,10 +94,10 @@ test.describe("C02 - Login na Plataforma", () => {
 
         await signup.btnSignUp.click();
         await signup.fillForm({
-            email: dataTestLogin.email,
-            name: dataTestLogin.name,
-            password: dataTestLogin.password,
-            passwordConfirmation: dataTestLogin.passwordConfirmation,
+            email: dataTest.email,
+            name: dataTest.name,
+            password: dataTest.password,
+            passwordConfirmation: dataTest.passwordConfirmation,
             initialBalance: false
         });
         await signup.submit();
@@ -105,8 +105,8 @@ test.describe("C02 - Login na Plataforma", () => {
         await login.goto();
 
         await login.credentials({
-            email: dataTestLogin.email,
-            password: dataTestLogin.password
+            email: dataTest.email,
+            password: dataTest.password
         });
         await login.access();
         await login.logout();
