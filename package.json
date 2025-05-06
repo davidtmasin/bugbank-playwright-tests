@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/davidtmasin/bugbank-playwright-tests#readme",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "playwright": "^1.52.0"
   },
   "devDependencies": {
