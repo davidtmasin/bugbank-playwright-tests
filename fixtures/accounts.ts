@@ -17,7 +17,7 @@ export const test = base.extend<Fixtures>({
     originAccount: async ({ page }, use) => {
 
         await page.goto('/');
-        await page.click('text=Registrar');
+        await page.click('text=Registrar', { delay: 1000 });
 
         await page.fill('div:nth-child(2) > input', dataTest.account_email_a);
         await page.getByPlaceholder('Informe seu Nome').fill('Conta A');
@@ -44,7 +44,7 @@ export const test = base.extend<Fixtures>({
     destinyAccount: async ({ page }, use) => {
 
         await page.goto('/');
-        await page.click('text=Registrar');
+        await page.click('text=Registrar', { delay: 1000 });
 
         await page.fill('div:nth-child(2) > input', dataTest.account_email_b);
         await page.getByPlaceholder('Informe seu Nome').fill('Conta B');
