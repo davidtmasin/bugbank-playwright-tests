@@ -164,7 +164,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         });
 
         await expect(page.locator('#modalText')).toBeVisible();
-        await expect(page.locator('#modalText')).toContainText('O e-mail fornecido já em uso.');
+        await expect(page.locator('#modalText')).toContainText('O e-mail fornecido já está em uso.');
     });
 
 });
