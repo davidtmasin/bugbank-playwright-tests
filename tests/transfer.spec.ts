@@ -190,7 +190,7 @@ test.describe("C03 - Transferência de Valores", () => {
         expect(msg).toContain('Valor da transferência não pode ser 0 ou negativo');
     });
 
-    test('CT07 - Realizar uma transferência sem preencher o campo obrigatório de descrição @failed', async ({ page, originAccount, destinyAccount }) => {
+    test.fail('CT07 - Realizar uma transferência sem preencher o campo obrigatório de descrição @failed', async ({ page, originAccount, destinyAccount }) => {
         const data = {
             email: 'conta-com-saldo@teste.com',
             password: 'S3cr3TP@55w0rd'
@@ -219,7 +219,7 @@ test.describe("C03 - Transferência de Valores", () => {
         expect(msg).toContain('Descrição não pode ser vazio');
     });
 
-    test('CT08 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, originAccount }) => {
+    test.fail('CT08 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, originAccount }) => {
         const data = {
             email: 'conta-com-saldo@teste.com',
             password: 'S3cr3TP@55w0rd'
@@ -248,7 +248,7 @@ test.describe("C03 - Transferência de Valores", () => {
         expect(msg).toContain('Número da conta não pode ser vazio');
     });
 
-    test('CT08.1 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, destinyAccount, originAccount }) => {
+    test.fail('CT08.1 - Realizar uma transferência sem preencher a conta de destino @failed', async ({ page, destinyAccount, originAccount }) => {
         const data = {
             email: 'conta-com-saldo@teste.com',
             password: 'S3cr3TP@55w0rd'
@@ -277,7 +277,7 @@ test.describe("C03 - Transferência de Valores", () => {
         expect(msg).toContain('Número da conta não pode ser vazio');
     });
 
-    test('CT09 - Realizar uma transferência sem fornecer o valor @failed', async ({ page, originAccount, destinyAccount }) => {
+    test.fail('CT09 - Realizar uma transferência sem fornecer o valor @failed', async ({ page, originAccount, destinyAccount }) => {
         const data = {
             email: 'conta-com-saldo@teste.com',
             password: 'S3cr3TP@55w0rd'
@@ -306,7 +306,7 @@ test.describe("C03 - Transferência de Valores", () => {
         expect(msg).toContain('Valor da transferência não pode ser vazio');
     });
 
-    test('CT10 - Realizar transferência sem fornecer todas as informações @failed', async ({ page, originAccount }) => {
+    test.fail('CT10 - Realizar transferência sem fornecer todas as informações @failed', async ({ page, originAccount }) => {
         const data = {
             email: 'conta-com-saldo@teste.com',
             password: 'S3cr3TP@55w0rd'

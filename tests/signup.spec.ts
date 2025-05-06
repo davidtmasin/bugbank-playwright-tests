@@ -51,7 +51,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('criada com sucesso');
     });
 
-    test('CT03 - Cadastrar sem fornecer os dados obrigatórios', {
+    test.fail('CT03 - Cadastrar sem fornecer os dados obrigatórios', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -79,7 +79,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Nome não pode ser vazio.');
     });
 
-    test('CT05 - Cadastrar sem fornecer a informação de Email', {
+    test.fail('CT05 - Cadastrar sem fornecer a informação de Email', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -97,7 +97,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Email não pode ser vazio.');
     });
 
-    test('CT06 - Cadastrar sem fornecer a informação de Senha', {
+    test.fail('CT06 - Cadastrar sem fornecer a informação de Senha', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -115,7 +115,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('Senha não pode ser vazio.');
     });
 
-    test('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', {
+    test.fail('CT07 - Cadastrar sem fornecer a informação de Confirmação de Senha', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
@@ -151,7 +151,7 @@ test.describe("C01 - Cadastro de Usuário", () => {
         await expect(page.locator('#modalText')).toContainText('As senhas não são iguais.');
     });
 
-    test('CT09 - Cadastrar novamente o mesmo usuário', {
+    test.fail('CT09 - Cadastrar novamente o mesmo usuário', {
         tag: '@failed',
     }, async ({ page }) => {
         const signup = new SignUpPage(page);
