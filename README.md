@@ -43,11 +43,20 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 │   └── 🧪 SignUpPage.ts            # Abstração da página de cadastro de usuário
 │   └── 🧪 LoginPage.ts             # Abstração da página de login
 │   └── 🧪 TransferPage.ts          # Abstração da página de transferência
+│   └── 🧪 BankStatementPage.ts     # Abstração da página de extrato
 │ 
 ├── 📁 /tests                       # Contém as suítes de testes e seus respectivos casos
 │   └── 🧪 signup.spec.ts           # Testes automatizados do cenário de cadastro de usuário
 │   └── 🧪 login.spec.ts            # Testes automatizados do cenário de login na plataforma
 │   └── 🧪 transfer.spec.ts         # Testes automatizados do cenário de transferência de valores
+│   └── 🧪 bankstatement.spec.ts    # Testes automatizados do cenário de extrato da conta
+│
+├── 📁 /fixtures                    # Define dados fixos reutilizáveis, como criação de contas com ou sem saldo para os testes 
+│   └── 🧪 accounts.ts              # Fixture responsável pela criação das contas e o armazenamento das informações de número da conta e dígito
+│
+├── 📁 /utils                       # Funções auxiliares que oferecem suporte à lógica dos testes
+│   └── 🧪 dateUtils.ts             # Formatação de data no padrão PT-BR para uso nos testes
+│   └── 🧪 formatUtils.ts           # Formatação de string em número e vice-versa para uso em ações nos testes
 │
 ├── 📄 README.md                    # Documentação inicial do projeto
 ├── 📄 package.json                 # Gerenciador de dependências e scripts do projeto
