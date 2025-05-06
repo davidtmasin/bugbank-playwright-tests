@@ -35,7 +35,8 @@ test.describe("C02 - Login na Plataforma", () => {
             initialBalance: data.initialBalance
         });
         await signup.submit();
-        await signup.btnClose.click();
+        // await signup.btnClose.click();
+        await login.goto();
 
         await login.credentials({
             email: data.email,
@@ -126,7 +127,8 @@ test.describe("C02 - Login na Plataforma", () => {
             initialBalance: data.initialBalance
         });
         await signup.submit();
-        await signup.btnClose.click();
+        // await signup.btnClose.click();
+        await login.goto();
 
         await login.credentials({
             email: data.email,
