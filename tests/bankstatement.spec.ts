@@ -3,6 +3,8 @@ import { LoginPage } from "../pages/LoginPage";
 import { BankStatementPage } from "../pages/BankStatementPage";
 import { TransferPage } from "../pages/TransferPage";
 
+import {dataTest} from '../fixtures/dataTest';
+
 
 test.describe('C04 - Extrato da Conta', () => {
 
@@ -15,18 +17,13 @@ test.describe('C04 - Extrato da Conta', () => {
     });
 
     test('CT01 - Checar registro de abertura de conta no extrato de uma conta criada com saldo', async ({ page, originAccount }) => {
-        const data = {
-            email: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
-            initialBalance: true
-        };
         const login = new LoginPage(page);
         const bankStatement = new BankStatementPage(page);
 
         // Login na conta com saldo
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -34,22 +31,17 @@ test.describe('C04 - Extrato da Conta', () => {
 
         await expect(page).toHaveURL('/bank-statement');
 
-        await bankStatement.checkTransactionAccountOpening(data.initialBalance);
+        await bankStatement.checkTransactionAccountOpening(true);
     });
 
     test('CT02 - Checar registro de abertura de conta no extrato de uma conta criada sem saldo', async ({ page, destinyAccount }) => {
-        const data = {
-            email: 'conta-sem-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
-            initialBalance: false
-        };
         const login = new LoginPage(page);
         const bankStatement = new BankStatementPage(page);
 
         // Login na conta sem saldo
         await login.credentials({
-            email: data.email,
-            password: data.password
+            email: dataTest.account_email_b,
+            password: dataTest.password
         });
         await login.access();
 
@@ -57,14 +49,11 @@ test.describe('C04 - Extrato da Conta', () => {
 
         await expect(page).toHaveURL('/bank-statement');
 
-        await bankStatement.checkTransactionAccountOpening(data.initialBalance);
+        await bankStatement.checkTransactionAccountOpening(false);
     });
 
     test('CT03 - Verificar no extrato se uma transação de entrada está vindo com a descrição', async ({ page, originAccount, destinyAccount }) => {
         const data = {
-            emailA: 'conta-com-saldo@teste.com',
-            emailB: 'conta-sem-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
             typeOfTransaction: 'in',
             transferValue: '10.99',
             transferDescription: 'Transferência Teste 1'
@@ -75,8 +64,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta A
         await login.credentials({
-            email: data.emailA,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -96,8 +85,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta B
         await login.credentials({
-            email: data.emailB,
-            password: data.password
+            email: dataTest.account_email_b,
+            password: dataTest.password
         });
         await login.access();
 
@@ -115,8 +104,6 @@ test.describe('C04 - Extrato da Conta', () => {
 
     test('CT04 - Verificar no extrato se uma transação de saída está vindo com a descrição', async ({ page, originAccount, destinyAccount }) => {
         const data = {
-            emailA: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
             typeOfTransaction: 'out',
             transferValue: '10.99',
             transferDescription: 'Transferência Teste 2'
@@ -127,8 +114,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta A
         await login.credentials({
-            email: data.emailA,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -157,8 +144,6 @@ test.describe('C04 - Extrato da Conta', () => {
 
     test('CT05 - Verificar se uma transação de saída está visível no extrato com o valor em vermelho e um sinal negativo', async ({ page, originAccount, destinyAccount }) => {
         const data = {
-            emailA: 'conta-com-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
             typeOfTransaction: 'out',
             transferValue: '10.99',
             transferDescription: 'TESTE QA'
@@ -169,8 +154,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta A
         await login.credentials({
-            email: data.emailA,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -193,9 +178,6 @@ test.describe('C04 - Extrato da Conta', () => {
 
     test('CT06 - Verificar se uma transação de entrada no valor de R$100 está visível no extrato com o valor em verde', async ({ page, originAccount, destinyAccount }) => {
         const data = {
-            emailA: 'conta-com-saldo@teste.com',
-            emailB: 'conta-sem-saldo@teste.com',
-            password: 'S3cr3TP@55w0rd',
             typeOfTransaction: 'in',
             transferValue: '10.99',
             transferDescription: 'TESTE QA'
@@ -206,8 +188,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta A
         await login.credentials({
-            email: data.emailA,
-            password: data.password
+            email: dataTest.account_email_a,
+            password: dataTest.password
         });
         await login.access();
 
@@ -227,8 +209,8 @@ test.describe('C04 - Extrato da Conta', () => {
 
         // Login na conta B
         await login.credentials({
-            email: data.emailB,
-            password: data.password
+            email: dataTest.account_email_b,
+            password: dataTest.password
         });
         await login.access();
 
