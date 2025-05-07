@@ -16,7 +16,7 @@ export const test = base.extend<Fixtures>({
     originAccount: async ({ page }, use) => {
 
         await page.goto('/');
-        await page.click('text=Registrar', { delay: 1000 });
+        await page.click('text=Registrar');
 
         await expect(page.locator('.card__register')).toBeVisible();
 
@@ -45,7 +45,7 @@ export const test = base.extend<Fixtures>({
     destinyAccount: async ({ page }, use) => {
 
         await page.goto('/');
-        await page.click('text=Registrar', { delay: 1000 });
+        await page.click('text=Registrar');
 
         await expect(page.locator('.card__register')).toBeVisible();
 
