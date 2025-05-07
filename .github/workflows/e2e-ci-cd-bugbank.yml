@@ -31,6 +31,8 @@ jobs:
           echo "TEST_USER_EMAIL=${{ secrets.TEST_USER_EMAIL }}" >> .env
           echo "TEST_USER_NAME=${{ secrets.TEST_USER_NAME }}" >> .env
           echo "TEST_USER_PASSWORD=${{ secrets.TEST_USER_PASSWORD }}" >> .env
+          echo "TEST_USER_PASSWORD=${{ secrets.TEST_ACCOUNT_EMAIL_A }}" >> .env
+          echo "TEST_USER_PASSWORD=${{ secrets.TEST_ACCOUNT_EMAIL_B }}" >> .env
 
       - name: Run Playwright tests
         run: npx playwright test
