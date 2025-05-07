@@ -53,6 +53,7 @@ As seguintes funcionalidades foram validadas manualmente e agora estão sendo au
 │
 ├── 📁 /fixtures                    # Define dados fixos reutilizáveis, como criação de contas com ou sem saldo para os testes 
 │   └── 🧪 accounts.ts              # Fixture responsável pela criação das contas e captura das informações de número da conta e dígito
+│   └── 🧪 dataTest.ts              # Fixture com o papel de centralizar o uso das variáveis de ambiente dentro dos testes, deixando o código mais limpo, reutilizável e fácil de manter
 │
 ├── 📁 /utils                       # Funções auxiliares que oferecem suporte à lógica dos testes
 │   └── 🧪 dateUtils.ts             # Formatação de data no padrão PT-BR para uso nos testes
